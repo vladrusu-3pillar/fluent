@@ -18,3 +18,18 @@ extension Filter.Comparison: CustomStringConvertible {
         }
     }
 }
+
+extension Filter.Comparison {
+    var sql: String {
+        switch self {
+        case .Equals:
+            return "="
+        case .NotEquals:
+            return "!="
+        case .GreaterThan:
+            return ">"
+        case .LessThan:
+            return "<"
+        }
+    }
+}

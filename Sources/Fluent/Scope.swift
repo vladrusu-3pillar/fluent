@@ -9,3 +9,14 @@ extension Filter.Scope: CustomStringConvertible {
         return self == .In ? "in" : "not in"
     }
 }
+
+extension Filter.Scope {
+    var sql: String {
+        switch self {
+        case .In:
+            return "IN"
+        case .NotIn:
+            return "NOT IN"
+        }
+    }
+}

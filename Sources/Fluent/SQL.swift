@@ -182,18 +182,6 @@ extension Offset {
     }
 }
 
-
-extension Filter.Scope {
-    var sql: String {
-        switch self {
-        case .In:
-            return "IN"
-        case .NotIn:
-            return "NOT IN"
-        }
-    }
-}
-
 extension Sort {
     var sql: String {
         if case .Ascending = direction {
@@ -202,17 +190,6 @@ extension Sort {
             return "ORDER BY \(field) DESC"
         }
         return ""
-    }
-}
-
-extension Filter.Operation {
-    var sql: String {
-        switch self {
-        case .And:
-            return "AND"
-        case .Or:
-            return "OR"
-        }
     }
 }
 
@@ -232,20 +209,5 @@ extension Union {
         components.append("\(foreignKey)=\(otherKey)")
 
         return components.joined(separator: " ")
-    }
-}
-
-extension Filter.Comparison {
-    var sql: String {
-        switch self {
-        case .Equals:
-            return "="
-        case .NotEquals:
-            return "!="
-        case .GreaterThan:
-            return ">"
-        case .LessThan:
-            return "<"
-        }
     }
 }

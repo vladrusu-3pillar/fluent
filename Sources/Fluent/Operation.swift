@@ -16,3 +16,14 @@ extension Filter.Operation: CustomStringConvertible {
         }
     }
 }
+
+extension Filter.Operation {
+    var sql: String {
+        switch self {
+        case .And:
+            return "AND"
+        case .Or:
+            return "OR"
+        }
+    }
+}
