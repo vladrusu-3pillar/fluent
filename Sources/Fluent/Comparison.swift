@@ -1,6 +1,6 @@
 extension Filter {
     public enum Comparison {
-        case Equals, GreaterThan, LessThan, NotEquals
+        case Equals, GreaterThan, LessThan, NotEquals, Like
     }
 }
 
@@ -15,7 +15,10 @@ extension Filter.Comparison: CustomStringConvertible {
             return "<"
         case .NotEquals:
             return "!="
+        case .Like:
+            return "LIKE"
         }
+        
     }
 }
 
@@ -30,6 +33,8 @@ extension Filter.Comparison {
             return ">"
         case .LessThan:
             return "<"
+        case .Like:
+            return "LIKE"
         }
     }
 }
